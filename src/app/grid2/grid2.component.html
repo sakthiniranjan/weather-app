@@ -1,0 +1,37 @@
+
+<div class="col-md-12 offset-md-3">
+  <div class="col-sm-12 text-center">
+    <div class = "Input-group mt-5">
+      <input  class="from-control" type="text" #userInput placeholder="Enter city name">
+      <div class ="input-group-append">
+        <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
+      </div>
+    <p>Weather in {{ weather.name }}, {{ weather.sys.country }}</p>
+    </div>
+    <span class="temp">
+    <div class="col-sm-12">
+      <span class= "temp"><img src="assets\{{weather.weather[0].icon }}.png" >
+        {{ (weather.main.temp - 32) * 5.0/9.0 | number: '1.0-0' }} &#176; C </span>
+        <p class ="text-uppercase font-italic font-weight-bold">{{ weather.weather[0].description }}</p>
+      </div>
+
+<table class="table table-light table-striped table-bordered table-sm">
+  <tbody>
+    <tr>
+      <td>Humidity</td><td>{{ weather.main.humidity }}%</td>
+    </tr>
+    <tr>
+      <td>Pressure</td><td>{{ weather.main.pressure }}hpa</td>
+    </tr>
+    <tr>
+      <td>Sunrise</td><td>{{ weather.sys.sunrise * 1000 | date:'H:mm' }}</td>
+    </tr>
+    <tr>
+      <td>Sunset</td><td>{{ weather.sys.sunset * 1000 | date: 'H:mm' }}</td>
+    </tr>
+
+  </tbody>
+  </table>
+  </span>
+</div>
+</div>
